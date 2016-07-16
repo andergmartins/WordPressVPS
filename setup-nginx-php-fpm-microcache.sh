@@ -1,4 +1,4 @@
-#Sets up default LEMP Stack on Ubuntu (14.04x64) with Nginx, MySql 5.5, PHP-FPM 5.5
+#Sets up default LEMP Stack on Ubuntu (16.04x64) with Nginx, MySql 5.7, PHP-FPM 7.0
 #CONFIGURATION
 MYSQLPASS="password"
 MYSQLDATABASE="wordpress"
@@ -13,7 +13,7 @@ sudo debconf-set-selections <<< "mysql-server mysql-server/root_password passwor
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password ${MYSQLPASS}"
 sudo apt-get -y install mysql-server mysql-client
 
-apt-get install -y php5-mysql php5-fpm php5-gd php5-cli
+apt-get install php7.0-mysql php7.0-fpm php7.0-gd php7.0-cli
 
 #configure phpfpm settings
 sed -i "s/^;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php5/fpm/php.ini
